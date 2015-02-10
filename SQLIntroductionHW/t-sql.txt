@@ -1,0 +1,4 @@
+Problem 2.	What is Transact-SQL (T-SQL)?
+Perform a research (e.g. in Google or Wikipedia) and provide an information about Transact-SQL.
+
+Transact-SQL (T-SQL) is Microsoft's and Sybase's proprietary extension to SQL.
