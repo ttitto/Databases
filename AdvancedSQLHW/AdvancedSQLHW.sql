@@ -139,6 +139,8 @@ WHERE LEN(LastName) = 5
 --"day.month.year hour:minutes:seconds:milliseconds". 
 SELECT
 	CONVERT(VARCHAR(10), GETDATE(), 104) + ' ' + CONVERT(VARCHAR(14), GETDATE(), 114) AS [Current Date]
+-- OR
+SELECT FORMAT(GETDATE(), 'dd.MM.yyyy HH:mm:ss:fff') as [DateTime];
 
 --Problem 15.	
 --Write a SQL statement to create a table Users.
@@ -332,6 +334,14 @@ GROUP BY	d.Name,
 			d.DepartmentID,
 			e.DepartmentID,
 			e.JobTitle
+--OR
+SELECT d.Name as Department, 
+		e.JobTitle, 
+		MIN(e.FirstName) as [First Name], 
+		MIN(Salary) as [MinSalary]
+FROM Employees e JOIN Departments d
+	ON e.DepartmentID = d.DepartmentID
+GROUP BY e.JobTitle, d.Name
 
 --Problem 27.	
 --Write a SQL query to display the town where maximal number of employees work.
