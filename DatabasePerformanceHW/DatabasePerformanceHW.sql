@@ -35,7 +35,7 @@ SELECT COUNT(*) FROM SamplePerformanceTable
 DBCC DROPCLEANBUFFERS
 DBCC FREEPROCCACHE
 GO
-SELECT sampleDate, sampleText 
+SELECT sampleDate
 FROM SamplePerformanceTable
 WHERE sampleDate > DATEFROMPARTS(2015, 02,21)
 GO
