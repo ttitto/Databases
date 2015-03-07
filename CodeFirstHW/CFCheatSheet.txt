@@ -1,0 +1,20 @@
+1. In namespace .Models define classes with properties, navigation properties, constructors when needed (Guid, Collections). Pay attention to conventions about keys, lazy loading, private fields for collections, annotations.
+2. In namespace .Data create concrete DbContext child class with IDbSet<T> properties
+3.* Add client project to test functionality
+4. Add connection string in App/Web.config and initialize the Context with the name of the conn. string
+5. enable-migrations in PMConsole, in Configuration class change scope to public, in constructor set AutomaticMigrationsEnabled and AutomaticMigrationDataLossAllowed
+6. Set Migration strategy: in app.config or using Database.SetInitializer(Migration strategy<Context, Configuration file>) somewhere
+7.* Fill some initial data in the Seed method
+
+Repository Pattern
+
+1. create an interface for the Context - IMyDbContext defining all IDbSet<T> inside and SaveChanges(), IDbSet<TEntity> Set<Entity> and DbEntityEntry<TEntity> Entry<TEntity>() from DbContext
+2. Create Folder Repositories and create IGenericRepository<T> having all needed CRUD operations, Detach, SaveChanges(), IDbSet<TEntity> Set<Entity> and DbEntityEntry<TEntity> Entry<TEntity>() from DbContext
+3. Create GenericRepository implementing the IGenericRep. with private context from outside 
+4. Create method in GenericRepository to change the entity state  and implement the CRUD operations methods
+5. Create concrete RepositoryClasses for each model class inheriting GenericRepository<ConcreteModelClass>
+
+Unit Of Work
+6. createI...Data interface having properties IGenericRepository<ConcreteModelClass>
+7. in .Data namespace create new class ...Data with private context and IDictionary<Type, object> repositories coming from outside and having public properties IGenericRepository<ModelClass> ModelClasses . Also add private method GetRepository<ModelClass> that checks the dictionary for this repository type
+8. 
