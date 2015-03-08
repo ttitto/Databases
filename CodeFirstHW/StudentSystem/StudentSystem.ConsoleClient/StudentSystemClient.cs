@@ -14,21 +14,22 @@
         static void Main(string[] args)
         {
             var data = new StudentSystemData();
-            var materialToAdd = new Material();
-            materialToAdd.Name = "EF Code First Demo";
-            materialToAdd.Link = "http://github.com/EFCF/EFCFDemo.ppt";
-            materialToAdd.MaterialType = MaterialType.CodeStubs;
-            data.Materials.Add(materialToAdd);
-
             data.SaveChanges();
+            //var materialToAdd = new Material();
+            //materialToAdd.Name = "EF Code First Demo";
+            //materialToAdd.Link = "http://github.com/EFCF/EFCFDemo.ppt";
+            //materialToAdd.MaterialType = MaterialType.CodeStubs;
+            //data.Materials.Add(materialToAdd);
 
-            Console.WriteLine("Material added successfuly: Id: {0}", materialToAdd.Id);
+            //data.SaveChanges();
 
-            var materialToDelete = data.Materials.All(m => m.Id == 2).FirstOrDefault();
-            data.Materials.Delete(materialToDelete);
+            //Console.WriteLine("Material added successfuly: Id: {0}", materialToAdd.Id);
 
-            data.SaveChanges();
-            Console.WriteLine("Material added successfuly: Id: {0}", materialToDelete.Id);
+            //var materialToDelete = data.Materials.All(m => m.Id == 2).FirstOrDefault();
+            //data.Materials.Delete(materialToDelete);
+
+            //data.SaveChanges();
+            //Console.WriteLine("Material added successfuly: Id: {0}", materialToDelete.Id);
             //StudentSystemDbContext dbContext = new StudentSystemDbContext();
 
             //Student student = dbContext.Students.FirstOrDefault();

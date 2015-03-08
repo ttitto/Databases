@@ -11,14 +11,14 @@
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Homework's content is required")]
+        [Required(ErrorMessage = "Homework's content is required", ErrorMessageResourceName = "Homework Content")]
         public string Content { get; set; }
 
-        [Required(ErrorMessage = "Homework's content type is required")]
+        [Required(ErrorMessage = "Homework's content type is required", ErrorMessageResourceName = "Homework ContentType")]
         public HomeworkContentType ContentType { get; set; }
 
-        [Required(ErrorMessage = "Homework's SentDate is required")]
-        [PassedDate(ErrorMessage = "Homework's SentDate should be one in the past.")]
+        [Required(ErrorMessage = "Homework's SentDate is required", ErrorMessageResourceName = "Homework SentDate")]
+        [PassedDate(ErrorMessage = "Homework's SentDate should be one in the past.", ErrorMessageResourceName = "Homework SentDate")]
         public DateTime SentDate { get; set; }
 
         public int CourseId { get; set; }

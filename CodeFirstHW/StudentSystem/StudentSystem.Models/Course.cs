@@ -20,19 +20,19 @@
 
         public int Id { get; set; }
 
-        [MinLength(2, ErrorMessage = "Course's Name should be at least 2 chars long")]
-        [Required(ErrorMessage = "Course's Name is required")]
+        [MinLength(2, ErrorMessage = "Course's Name should be at least 2 chars long", ErrorMessageResourceName = "Course Name")]
+        [Required(ErrorMessage = "Course's Name is required", ErrorMessageResourceName = "Course Name")]
         public string Name { get; set; }
 
-        [MinLength(50, ErrorMessage = "Course's description should be at least 50 characters")]
+        [MinLength(20, ErrorMessage = "Course's description should be at least 20 characters", ErrorMessageResourceName="Course Description")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Course's start date is required")]
+        [Required(ErrorMessage = "Course's start date is required", ErrorMessageResourceName = "Course StartDate")]
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
 
-        [Required(ErrorMessage = "Course's price date is required")]
+        [Required(ErrorMessage = "Course's price date is required", ErrorMessageResourceName = "Course Price")]
         public decimal Price { get; set; }
 
         public virtual ICollection<Student> Students
