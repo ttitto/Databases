@@ -13,10 +13,26 @@
     {
         static void Main(string[] args)
         {
-            StudentSystemDbContext dbContext = new StudentSystemDbContext();
-           
-            Student student = dbContext.Students.FirstOrDefault();
-            Console.WriteLine(student.Name);
+            var data = new StudentSystemData();
+            var materialToAdd = new Material();
+            materialToAdd.Name = "EF Code First Demo";
+            materialToAdd.Link = "http://github.com/EFCF/EFCFDemo.ppt";
+            materialToAdd.MaterialType = MaterialType.CodeStubs;
+            data.Materials.Add(materialToAdd);
+
+            data.SaveChanges();
+
+            Console.WriteLine("Material added successfuly: Id: {0}", materialToAdd.Id);
+
+            var materialToDelete = data.Materials.All(m => m.Id == 2).FirstOrDefault();
+            data.Materials.Delete(materialToDelete);
+
+            data.SaveChanges();
+            Console.WriteLine("Material added successfuly: Id: {0}", materialToDelete.Id);
+            //StudentSystemDbContext dbContext = new StudentSystemDbContext();
+
+            //Student student = dbContext.Students.FirstOrDefault();
+            //Console.WriteLine(student.Name);
         }
     }
 }
