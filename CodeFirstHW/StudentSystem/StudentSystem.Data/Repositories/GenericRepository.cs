@@ -18,6 +18,11 @@
             this.set = context.Set<T>();
         }
 
+        public IQueryable<T> All()
+        {
+            return this.set.AsQueryable();
+        }
+
         public IQueryable<T> All(Expression<Func<T, bool>> conditions)
         {
             return this.set.Where(conditions);

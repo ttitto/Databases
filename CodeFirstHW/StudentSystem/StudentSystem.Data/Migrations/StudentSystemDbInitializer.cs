@@ -182,11 +182,13 @@
             JSBasicsCourse.Homeworks.Add(jSHw);
             courses.Add(JSBasicsCourse);
 
-            // Seed homeworks
+            //// Seed homeworks
             eFCFHw.Student = gosho;
             eFCFHw.StudentId = gosho.Id;
+            //gosho.Homeworks.Add(eFCFHw);
             jSHw.Student = pesho;
             jSHw.StudentId = pesho.Id;
+            //pesho.Homeworks.Add(jSHw);
 
             homeworks.Add(eFCFHw);
             homeworks.Add(jSHw);
@@ -194,24 +196,19 @@
             // seed students
 
             gosho.Courses.Add(JSBasicsCourse);
-            //gosho.Homeworks.Add(jSHw);
             students.Add(gosho);
 
             pesho.Courses.Add(JSBasicsCourse);
             pesho.Courses.Add(dBAppsCourse);
-            //pesho.Homeworks.Add(jSHw);
-            //pesho.Homeworks.Add(eFCFHw);
             students.Add(pesho);
 
             students.Add(minka);
 
             genka.Courses.Add(dBAppsCourse);
-            //genka.Homeworks.Add(eFCFHw);
             students.Add(genka);
 
             milka.Courses.Add(dBAppsCourse);
             milka.Courses.Add(JSBasicsCourse);
-            //milka.Homeworks.Add(eFCFHw);
             students.Add(milka);
 
             // Add objects to context's data

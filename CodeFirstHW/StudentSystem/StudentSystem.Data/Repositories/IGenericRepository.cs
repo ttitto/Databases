@@ -9,6 +9,8 @@
 
     public interface IGenericRepository<T> where T : class
     {
+        IQueryable<T> All();
+
         IQueryable<T> All(Expression<Func<T, bool>> conditions);
 
         T Add(T entity);
